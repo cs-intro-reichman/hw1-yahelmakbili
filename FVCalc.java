@@ -7,7 +7,7 @@ public class FVCalc {
 		int n = Integer.parseInt(args[2]);
 
 		// calculates pow (1+rate)
-		double pow = (double) Math.pow((1 + rate), n);
+		double pow = (double) Math.pow(1 + (rate / 100), n);
 		// calculate future value
 		double FutureValue = (currentValue * pow);
 
