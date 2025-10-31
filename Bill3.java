@@ -11,7 +11,7 @@ public class Bill3 {
 		double share = (double) bill / 3;
 		double roundedShare = Math.ceil(share);
 		// print results
-		System.out.println("Dear " + name1 + "," + name2 + " and " + name3 + ": pay" + " " + roundedShare + " "
+		System.out.println("Dear " + name3 + "," + name2 + " and " + name1 + ": pay" + " " + roundedShare + " "
 				+ " Shekels each.");
 	}
 }
