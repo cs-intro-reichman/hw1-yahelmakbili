@@ -10,7 +10,7 @@ public class Bill3 {
 		// divide and round the bill
 		double share = (double) bill / 3;
 		double roundedShare = Math.ceil(share);
-		// print results
+		// print results in reverse
 		System.out.println("Dear " + name3 + "," + name2 + ",and " + name1 + ": pay" + " " + roundedShare + " "
 				+ " Shekels each.");
 	}
