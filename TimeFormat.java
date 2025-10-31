@@ -1,14 +1,14 @@
 public class TimeFormat {
 	public static void main(String[] args) {
 
-		// הקלט: "HH:MM"
+		// read input "HH:MM"
 		String input = args[0];
 
-		// ניקח את השעות והדקות כמספרים
+		// parse hours and minutes from the string
 		int hours24 = Integer.parseInt("" + input.charAt(0) + input.charAt(1));
 		int mins = Integer.parseInt("" + input.charAt(3) + input.charAt(4));
 
-		// לקבוע AM או PM
+		// decide AM / PM
 		String suffix;
 		if (hours24 >= 12) {
 			suffix = "PM";
@@ -16,7 +16,7 @@ public class TimeFormat {
 			suffix = "AM";
 		}
 
-		// להמיר לשעון 12 שעות
+		// convert to 12-hour clock
 		int hours12;
 		if (hours24 == 0) {
 			// 00:xx -> 12:xx AM
@@ -25,11 +25,11 @@ public class TimeFormat {
 			// 13..23 -> (hour-12):xx PM
 			hours12 = hours24 - 12;
 		} else {
-			// 01..12 נשאר אותו דבר
+			// 01..12 stays the same
 			hours12 = hours24;
 		}
 
-		// לבנות שעתיים ספרות
+		// make sure hour is 2 digits
 		String hourStr;
 		if (hours12 < 10) {
 			hourStr = "0" + hours12;
@@ -37,7 +37,7 @@ public class TimeFormat {
 			hourStr = "" + hours12;
 		}
 
-		// לבנות שתי ספרות דקות
+		// make sure minutes are 2 digits
 		String minStr;
 		if (mins < 10) {
 			minStr = "0" + mins;
@@ -45,7 +45,7 @@ public class TimeFormat {
 			minStr = "" + mins;
 		}
 
-		// הדפסה אחת בלבד בכל המקרים
+		// FINAL OUTPUT (always prints!)
 		System.out.println(hourStr + ":" + minStr + " " + suffix);
 	}
 }
