@@ -7,7 +7,7 @@ public class Bill3 {
 		String name3 = args[2];
 		// get input of the total bill
 		int bill = Integer.parseInt(args[3]);
-		// divide and round the bill
+		// divide and round up the bill
 		double share = (double) bill / 3;
 		double roundedShare = Math.ceil(share);
 		// print results in reverse
