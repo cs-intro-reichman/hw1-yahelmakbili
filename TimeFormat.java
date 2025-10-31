@@ -14,11 +14,11 @@ public class TimeFormat {
 			suffix = "AM";
 		}
 		// print correct suffix, hours and minutes
-		if (hours < 12 || hours == 00) {
+		if ((hours < 12 || hours == 00) && (minutes < 10)) {
 			System.out.println(hour + " AM");
 		} else if (hours == 12) {
 			System.out.println(hour + " PM");
-		} else if (hours > 12) {
+		} else if ((hours > 12) && (minutes < 10)) {
 			hours = (hours - 12);
 			System.out.println(hours + ":0" + minutes + " PM");
 		}
