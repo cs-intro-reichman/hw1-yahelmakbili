@@ -1,14 +1,13 @@
 public class TimeFormat {
 	public static void main(String[] args) {
-
-		// input like "18:45"
+		// input comes as "hh:mm"
 		String input = args[0];
 
-		// parse hours and minutes from the string
+		// 1. take hours and minutes from the string
 		int hours24 = Integer.parseInt("" + input.charAt(0) + input.charAt(1));
 		int mins = Integer.parseInt("" + input.charAt(3) + input.charAt(4));
 
-		// decide AM/PM (suffix)
+		// 2. decide AM or PM from the 24h hour
 		String suffix;
 		if (hours24 >= 12) {
 			suffix = "PM";
@@ -16,8 +15,9 @@ public class TimeFormat {
 			suffix = "AM";
 		}
 
-		// convert 24-hour clock → 12-hour clock
+		// 3. convert 24h -> 12h display hour
 		int hours12;
+
 		if (hours24 == 0) {
 			// 00:xx -> 0:xx AM
 			hours12 = 0;
@@ -25,14 +25,15 @@ public class TimeFormat {
 			// 13..23 -> 1..11 PM
 			hours12 = hours24 - 12;
 		} else {
-			// 01..12 stays the same
+			// 01..12 -> stays same
 			hours12 = hours24;
 		}
 
-		// hourStr: NO leading zero
+		// 4. build hour as string WITHOUT leading zero (this was failing tests like
+		// 13:13 -> 01:13 PM)
 		String hourStr = "" + hours12;
 
-		// minStr: always 2 digits
+		// 5. build minutes as string WITH leading zero if needed (08 not 8)
 		String minStr;
 		if (mins < 10) {
 			minStr = "0" + mins;
@@ -40,7 +41,7 @@ public class TimeFormat {
 			minStr = "" + mins;
 		}
 
-		// FINAL OUTPUT (always prints once)
+		// 6. final single print in required format
 		System.out.println(hourStr + ":" + minStr + " " + suffix);
 	}
 }
